@@ -5,13 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import MainPage from "./components/MainPage";
 import SubbmittedApplications from "./components/SubmittedApplications";
 import PersonalInformation from "./components/PersonalInformation";
+import TechnicalSkillset from "./components/TechnicalSkillset";
 
 function App() {
   const dispatch = useDispatch();
 
   return (
     <div className="App">
-      <PersonalInformation />
+      <TechnicalSkillset />
     </div>
   );
 }
