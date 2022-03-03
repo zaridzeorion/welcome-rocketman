@@ -1,4 +1,19 @@
 import { createReducer } from "@reduxjs/toolkit";
+import {
+  setFirstName,
+  setLastName,
+  setEmail,
+  setPhone,
+  setSkills,
+  setWorkPreference,
+  setHadCovid,
+  setHadCovidAt,
+  setVaccinated,
+  setVaccinatedAt,
+  setWillOrganizeDevtalk,
+  setDevtalkTopic,
+  setSomethingSpecial,
+} from "../actions/applicantActions";
 
 let initialState = {
   first_name: "",
