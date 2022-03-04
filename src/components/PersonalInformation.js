@@ -1,14 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PersonalInformation = () => {
+
+
   return (
     <>
       <div>
         <h2>Hey, Rocketeer, what are your coordinates?</h2>
-        <input type="text" placeholder="First Name" /> <br />
-        <input type="text" placeholder="Last Name" /> <br />
-        <input type="text" placeholder="E Mail" /> <br />
-        <input type="text" placeholder="+995 5__ __ __ __" />
+        <input onChange={(e) => handleChange(e)} id="first" type="text" placeholder="First Name" /> <br />
+        <input onChange={(e) => handleChange(e)} id="last" type="text" placeholder="Last Name" /> <br />
+        <input onChange={(e) => handleChange(e)} id="email" type="text" placeholder="E Mail" /> <br />
+        <input onChange={(e) => handleChange(e)} id="phone" type="text" placeholder="+995 5__ __ __ __" />
+
+
+        <ul>
+          <li><Link to="/">Prev</Link></li>
+          <li><Link to="/personal-information">personal-information</Link></li>
+          <li><Link to="/skillset">skillset</Link></li>
+          <li><Link to="/covid">covid</Link></li>
+          <li><Link to="/insights">insights</Link></li>
+          <li></li>
+          <li><Link to="/skillset">Next</Link></li>
+        </ul>
       </div>
 
       <div>

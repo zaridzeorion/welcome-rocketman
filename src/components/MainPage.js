@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const MainPage = () => {
     return (
         <div>
             <h1>Welcome Rocketeer!</h1>
 
-            <button>Start Questionnaire</button> <br />
-            <button>Submitted Applications</button> <br />
+            <Link to="personal-information"><button>Start Questionnaire</button></Link> <br />
+            <Link to="submitted-applications"><button>Submitted Applications</button></Link> <br />
 
             <img alt="rocketman" src="" />
         </div>
