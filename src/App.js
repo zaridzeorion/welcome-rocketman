@@ -1,21 +1,33 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 
 // components
 import MainPage from "./components/MainPage";
-import SubbmittedApplications from "./components/SubmittedApplications";
+import SubmittedApplications from "./components/SubmittedApplications";
 import PersonalInformation from "./components/PersonalInformation";
 import TechnicalSkillset from "./components/TechnicalSkillset";
 import Covid from "./components/Covid";
 import Insights from "./components/Insights";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
-  const dispatch = useDispatch();
+
 
   return (
-    <div className="App">
-      <Insights />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<MainPage />} />
+        <Route
+          path="/submitted-applications"
+          element={<SubmittedApplications />}
+        />
+
+        <Route path="/personal-information" element={<PersonalInformation />} />
+        <Route path="/skillset" element={<TechnicalSkillset />} />
+        <Route path="/covid" element={<Covid />} />
+        <Route path="/insights" element={<Insights />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
