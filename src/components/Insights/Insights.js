@@ -1,60 +1,77 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setWillOrganizeDevtalk, setDevtalkTopic, setSomethingSpecial } from "../store/slices/applicantSlice";
+import { handleWillOrganizeDevtalk, handleDevtalkTopic, handleSomethingSpecial } from './handlers'
 
 const PersonalInformation = () => {
   const dispatch = useDispatch();
   const applicant = useSelector((state) => state.applicant);
   const { will_organize_devtalk, devtalk_topic, something_special } = applicant;
 
-  const handleWillOrganizeDevtalk = e => {
-    let checked = e.target.value
-
-    checked === 'yes' && dispatch(setWillOrganizeDevtalk(true)) 
-    checked === 'no' && dispatch(setWillOrganizeDevtalk(false))
-  }
-
-  const handleDevtalkTopic = e => {
-    let topic = e.target.value
-
-    topic && dispatch(setDevtalkTopic(topic))
-  }
-
-  const handleSomethingSpecial = e => {
-    let something_special = e.target.value
-
-    something_special && dispatch(setSomethingSpecial(something_special))
-  }
-
   return (
     <>
       <div>
+        <h2>What about you?</h2>
+
+
+        {/* Devtalk attend  */}
         <h4>Would you attend Devtalks and maybe also organize your own?</h4>
-        <input value="yes" onChange={e => handleWillOrganizeDevtalk(e)} type="checkbox" checked={will_organize_devtalk} />
+        <input
+          value="yes"
+          onChange={(e) => handleWillOrganizeDevtalk(e, dispatch)}
+          type="checkbox"
+          checked={will_organize_devtalk}
+        />
         <label>Yes</label>
 
         <br />
 
-        <input value="no" onChange={e => handleWillOrganizeDevtalk(e)} type="checkbox" checked={will_organize_devtalk === false} />
+        <input
+          value="no"
+          onChange={(e) => handleWillOrganizeDevtalk(e, dispatch)}
+          type="checkbox"
+          checked={will_organize_devtalk === false}
+        />
         <label>No</label>
 
         <br />
 
-        <h4>What would you speak about at Devtalk?</h4>
-        <textarea value={devtalk_topic} onChange={e => handleDevtalkTopic(e)} placeholder="I would..." />
 
+        {/* Devtalk speech topic */}
+        <h4>What would you speak about at Devtalk?</h4>
+        <textarea
+          value={devtalk_topic}
+          onChange={(e) => handleDevtalkTopic(e, dispatch)}
+          placeholder="I would..."
+        />
+
+
+        {/* Something special  */}
         <h4>Tell us something special</h4>
-        <textarea value={something_special} onChange={e => handleSomethingSpecial(e)} placeholder="I..." />
+        <textarea
+          value={something_special}
+          onChange={(e) => handleSomethingSpecial(e, dispatch)}
+          placeholder="I..."
+        />
 
 
         {/* Navbar  */}
         <ul>
-          <li><Link to="/covid">Prev</Link></li>
-          <li><Link to="/personal-information">personal-information</Link></li>
-          <li><Link to="/skillset">skillset</Link></li>
-          <li><Link to="/covid">covid</Link></li>
-          <li><Link to="/insights">insights</Link></li>
+          <li>
+            <Link to="/covid">Prev</Link>
+          </li>
+          <li>
+            <Link to="/personal-information">personal-information</Link>
+          </li>
+          <li>
+            <Link to="/skillset">skillset</Link>
+          </li>
+          <li>
+            <Link to="/covid">covid</Link>
+          </li>
+          <li>
+            <Link to="/insights">insights</Link>
+          </li>
           <li></li>
           <li>Next</li>
         </ul>
@@ -76,8 +93,6 @@ const PersonalInformation = () => {
           an attendee or a speaker!
         </p>
       </div>
-
-
     </>
   );
 };
