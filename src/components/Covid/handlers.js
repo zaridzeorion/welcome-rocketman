@@ -16,9 +16,12 @@ export const handleWorkPreference = (e, dispatch) => {
 
 export const handleHadCovid = (e, dispatch) => {
   let checked = e.target.value;
-
   checked === "yes" && dispatch(setHadCovid(true));
-  checked === "no" && dispatch(setHadCovid(false));
+
+  if (checked === "no") {
+    dispatch(setHadCovid(false));
+    dispatch(setHadCovidAt(""));
+  }
 };
 
 export const handleHadCovidAt = (e, dispatch) => {
@@ -29,7 +32,11 @@ export const handleHadCovidAt = (e, dispatch) => {
 export const handleVaccinated = (e, dispatch) => {
   let checked = e.target.value;
   checked === "yes" && dispatch(setVaccinated(true));
-  checked === "no" && dispatch(setVaccinated(false));
+
+  if (checked === "no") {
+    dispatch(setVaccinated(false));
+    dispatch(setVaccinatedAt(""));
+  }
 };
 
 export const handleVaccinationDate = (e, dispatch) => {
