@@ -7,6 +7,7 @@ import PersonalInformation from "./components/PersonalInformation";
 import TechnicalSkillset from "./components/TechnicalSkillset";
 import Covid from "./components/Covid";
 import Insights from "./components/Insights";
+import Submit from "./components/Submit";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -25,6 +26,8 @@ function App() {
         <Route path="/skillset" element={<TechnicalSkillset />} />
         <Route path="/covid" element={<Covid />} />
         <Route path="/insights" element={<Insights />} />
+
+        <Route path="/submit" element={<Submit />} />
       </Routes>
     </BrowserRouter>
   );
