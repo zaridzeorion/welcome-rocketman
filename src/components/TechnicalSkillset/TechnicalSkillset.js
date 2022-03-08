@@ -12,14 +12,14 @@ const TechnicalSkillset = () => {
 
   // SKILLS API
   const SKILLS_REQUEST_URL = `https://bootcamp-2022.devtest.ge/api/skills`;
-  const { data: technologies } = useFetch(SKILLS_REQUEST_URL);
+  const { data: skills } = useFetch(SKILLS_REQUEST_URL);
 
   // ID for newly added skills
   const [id, setId] = useState(0);
 
   // INPUTS
-  const [technology, setTechnology] = useState("");
-  const [experience, setExperience] = useState("");
+  const [technology, setTechnology] = useState();
+  const [experience, setExperience] = useState();
 
   return (
     <>
@@ -30,36 +30,42 @@ const TechnicalSkillset = () => {
           <option value="" disabled>
             Skills
           </option>
-          {technologies &&
-            technologies.map((option) => (
-              <option key={option.id} value={option.title}>
-                {option.title}
-              </option>
-            ))}
+
+          {
+            skills && skills.map(skill => (
+              <option>{skill.title}</option>
+            ))
+          }
+
         </select>
+
         <br />
+
         <input
           value={experience}
           onChange={(e) => setExperience(e.target.value)}
-          type="text"
+          type="number"
           placeholder="Experience Duration in Years"
-        />{" "}
+        />
+
         <br />
-        <button onClick={() => addSkill(dispatch, experience, technology, setSkills, applicant, id, setId)}>
+        
+        <button onClick={() => addSkill(experience, technology, dispatch, setSkills, applicant, id, setId)}>
           Add Programming Language
         </button>
-        {/* Skills are displayed from here  */}
+
+        
+        {/* Added skills are displayed here  */}
         <ul>
-          {applicant.skills &&
-            applicant.skills.map((skill) => (
-              <li key={skill.id}>
-                {skill.title} {skill.experience}{" "}
-                <button onClick={() => delSkill(skill.id, dispatch, applicant, setSkills)}>
-                  Del
-                </button>
-              </li>
-            ))}
+          {applicant.skills.map(skill => 
+            <li key={skill.id}>
+              <p>{skill.title} | Years of experience {skill.experience}</p>
+              <button onClick={() => delSkill(dispatch, applicant, setSkills, skill.id)}>-</button>
+            </li>
+          )}
         </ul>
+
+        
         {/* NAVBAR */}
         <ul>
           <li>

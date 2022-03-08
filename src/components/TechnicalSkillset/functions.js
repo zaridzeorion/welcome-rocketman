@@ -1,15 +1,13 @@
 export const addSkill = (
-  dispatch,
   experience,
   technology,
+  dispatch,
   setSkills,
   applicant,
   id,
   setId
 ) => {
-  const onlyNumsRe = /^[1-9]+[0-9]*$/;
-
-  if (onlyNumsRe.test(experience) && technology) {
+  if (experience && technology) {
     dispatch(
       setSkills([
         ...applicant.skills,
@@ -22,12 +20,13 @@ export const addSkill = (
   // If skill is already addded:
   applicant.skills.find((skill) => {
     if (skill && skill.title.toLowerCase() === technology.toLowerCase()) {
+      // return same array
       dispatch(setSkills([...applicant.skills]));
     }
   });
 };
 
-export const delSkill = (id, dispatch, applicant, setSkills) => {
+export const delSkill = (dispatch, applicant, setSkills, id) => {
   const filteredUserSkills = applicant.skills.filter((skill) => {
     return skill.id !== id;
   });
