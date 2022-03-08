@@ -1,3 +1,5 @@
+import { openSkillsetRoute, closeSkillsetRoute } from "../../store/slices/routesOpenClose";
+
 export const validateEmail = (email) => {
   const re =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -12,10 +14,10 @@ export const validatePhone = (phone) => {
   return re.test(phone);
 };
 
-export const validateForm = (applicant, setIsValidated) => {
+export const validatePage = (applicant, dispatch) => {
   const { first_name, last_name, email, phone } = applicant;
 
-  setIsValidated(false);
+  dispatch(closeSkillsetRoute());
 
   if (
     first_name.length > 2 &&
@@ -25,6 +27,6 @@ export const validateForm = (applicant, setIsValidated) => {
       ? true
       : validatePhone(phone)
   ) {
-    setIsValidated(true);
+    dispatch(openSkillsetRoute());
   }
 };

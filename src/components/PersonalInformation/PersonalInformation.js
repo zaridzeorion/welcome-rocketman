@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { validateForm } from "./validators";
+import { validatePage } from "./validators";
 import {
   handleFirstName,
   handleLastName,
@@ -15,10 +14,8 @@ const PersonalInformation = () => {
   const dispatch = useDispatch();
   const applicant = useSelector((state) => state.applicant);
 
-  const [isValidated, setIsValidated] = useState(false);
-
   useEffect(() => {
-    validateForm(applicant, setIsValidated);
+    validatePage(applicant, dispatch);
   }, [applicant]);
 
   return (
