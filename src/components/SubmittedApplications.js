@@ -1,14 +1,15 @@
 import React from "react";
-import useFetch from "../hooks/useFetch";
+import { useFetch } from "use-http";
 
 const SubbmittedApplications = () => {
-  const API_TOKEN = "89nOpas%7Casdanjjh%5E%26as";
+  const API_TOKEN = "89nOpas|asdanjjh^&as";
 
   const APPLICATIONS_REQUEST_URL = `https://bootcamp-2022.devtest.ge/api/applications?token=${API_TOKEN}`;
-  const { data: users, error, loading } = useFetch(APPLICATIONS_REQUEST_URL);
+  const { data: skills = [], error, loading } = useFetch(APPLICATIONS_REQUEST_URL, [])
 
   const SKILLS_REQUEST_URL = `https://bootcamp-2022.devtest.ge/api/skills`;
-  const { data: technologies } = useFetch(SKILLS_REQUEST_URL);
+  const { data: technologies } = useFetch(SKILLS_REQUEST_URL, [])
+
 
   return (
     <div>
@@ -17,8 +18,7 @@ const SubbmittedApplications = () => {
       <ul>
         {error && error}
         {loading && "loading..."}
-        {users &&
-          users.map((user) => (
+        {skills.map((user) => (
             <li>
               {personalInformation(user)}
               {covidSituation(user)}
@@ -26,6 +26,8 @@ const SubbmittedApplications = () => {
               {insights(user)}
             </li>
           ))}
+
+          sdom
       </ul>
     </div>
   );

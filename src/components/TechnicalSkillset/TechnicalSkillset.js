@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
+import { useFetch } from "use-http";
 import { setSkills } from "../../store/slices/applicantSlice";
 import Navigation from "../Navigation";
 import { addSkill, delSkill } from "./functions";
@@ -13,7 +12,7 @@ const TechnicalSkillset = () => {
 
   // SKILLS API
   const SKILLS_REQUEST_URL = `https://bootcamp-2022.devtest.ge/api/skills`;
-  const { data: skills } = useFetch(SKILLS_REQUEST_URL);
+  const { skills = [] } = useFetch(SKILLS_REQUEST_URL, [])
 
   // ID for newly added skills
   const [id, setId] = useState(0);
