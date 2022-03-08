@@ -1,8 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit'
-import applicantReducer from './slices/applicantSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
+import applicant from "./slices/applicantSlice";
+import routesOpenClose from "./slices/routesOpenClose";
+
+const reducer = combineReducers({
+  applicant,
+  routesOpenClose
+});
 
 const store = configureStore({
-    reducer: {applicant: applicantReducer}
-})
+  reducer,
+});
 
-export default store
+export default store;
