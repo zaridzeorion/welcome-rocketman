@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
+  const isRouteOpen = useSelector(state => state.routesOpenClose)
+
   let { pathname } = useLocation();
   const [prev, setPrev] = useState("/");
   const [next, setNext] = useState("/");
+
+  let nextWithoutSlash = next.replace(/^\//, "")
 
   useEffect(() => {
     pathname === "/personal-information" && setNext(`/skillset`);
@@ -34,19 +39,19 @@ const Navigation = () => {
         <Link to="/personal-information">personal-information</Link>
       </li>
       <li>
-        <Link to="/skillset">skillset</Link>
+        {isRouteOpen.skillset ? <Link to="/skillset">skillset</Link> : 'skillset'}
       </li>
       <li>
-        <Link to="/covid">covid</Link>
+        {isRouteOpen.covid ? <Link to="/covid">covid</Link> : 'covid'}
       </li>
       <li>
-        <Link to="/insights">insights</Link>
+        {isRouteOpen.insights ? <Link to="/insights">insights</Link> : 'insights'}
       </li>
       <li>
-        <Link to="/submit">submit</Link>
+        {isRouteOpen.submit ? <Link to="/submit">submit</Link> : 'submit'}
       </li>
       <li>
-        <Link to={`${next}`}>Next</Link>
+        {isRouteOpen[nextWithoutSlash] ? <Link to={`${next}`}>Next</Link> : 'next'}
       </li>
     </ul>
   );
