@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { setSkills } from "../../store/slices/applicantSlice";
+import Navigation from "../Navigation";
 import { addSkill, delSkill } from "./functions";
 
 const TechnicalSkillset = () => {
@@ -66,28 +67,7 @@ const TechnicalSkillset = () => {
         </ul>
 
         
-        {/* NAVBAR */}
-        <ul>
-          <li>
-            <Link to="/personal-information">Prev</Link>
-          </li>
-          <li>
-            <Link to="/personal-information">personal-information</Link>
-          </li>
-          <li>
-            <Link to="/skillset">skillset</Link>
-          </li>
-          <li>
-            <Link to="/covid">covid</Link>
-          </li>
-          <li>
-            <Link to="/insights">insights</Link>
-          </li>
-          <li></li>
-          <li>
-            <Link to="/covid">Next</Link>
-          </li>
-        </ul>
+        <Navigation />
       </div>
 
       <div>

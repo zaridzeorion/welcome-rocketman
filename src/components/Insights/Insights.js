@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { handleWillOrganizeDevtalk, handleDevtalkTopic, handleSomethingSpecial } from './handlers'
+import Navigation from "../Navigation";
 
 const PersonalInformation = () => {
   const dispatch = useDispatch();
@@ -54,27 +54,7 @@ const PersonalInformation = () => {
           placeholder="I..."
         />
 
-
-        {/* Navbar  */}
-        <ul>
-          <li>
-            <Link to="/covid">Prev</Link>
-          </li>
-          <li>
-            <Link to="/personal-information">personal-information</Link>
-          </li>
-          <li>
-            <Link to="/skillset">skillset</Link>
-          </li>
-          <li>
-            <Link to="/covid">covid</Link>
-          </li>
-          <li>
-            <Link to="/insights">insights</Link>
-          </li>
-          <li></li>
-          <li>Next</li>
-        </ul>
+        <Navigation />
       </div>
 
 

@@ -9,6 +9,8 @@ import {
   handlePhone,
 } from "./handlers";
 
+import Navigation from "../Navigation";
+
 const PersonalInformation = () => {
   const dispatch = useDispatch();
   const applicant = useSelector((state) => state.applicant);
@@ -51,27 +53,7 @@ const PersonalInformation = () => {
           placeholder="+995 5__ __ __ __"
         />
 
-        <ul>
-          <li>
-            <Link to="/">Prev</Link>
-          </li>
-          <li>
-            <Link to="/personal-information">personal-information</Link>
-          </li>
-          <li>
-            <Link to="/skillset">skillset</Link>
-          </li>
-          <li>
-            <Link to="/covid">covid</Link>
-          </li>
-          <li>
-            <Link to="/insights">insights</Link>
-          </li>
-          <li></li>
-          <li>
-            <Link to="/skillset">Next</Link>
-          </li>
-        </ul>
+        <Navigation />
       </div>
 
       <div>

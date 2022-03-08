@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
+import Navigation from "../Navigation";
 import { handleWorkPreference, handleHadCovid, handleHadCovidAt, handleVaccinated, handleVaccinationDate } from "./handlers";
 
 const Covid = () => {
@@ -69,28 +68,7 @@ const Covid = () => {
         )}
 
 
-        {/* Navbar */}
-        <ul>
-          <li>
-            <Link to="/skillset">Prev</Link>
-          </li>
-          <li>
-            <Link to="/personal-information">personal-information</Link>
-          </li>
-          <li>
-            <Link to="/skillset">skillset</Link>
-          </li>
-          <li>
-            <Link to="/covid">covid</Link>
-          </li>
-          <li>
-            <Link to="/insights">insights</Link>
-          </li>
-          <li></li>
-          <li>
-            <Link to="/insights">Next</Link>
-          </li>
-        </ul>
+        <Navigation />
       </div>
 
 
