@@ -3,10 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from './Navigation.module.css'
 
-import PrevImg from '../images/navigation/Previous.png'
-import EllipseActiveImg from '../images/navigation/EllipseActive.png'
-import EllipseNonActiveImg from '../images/navigation/EllipseNonActive.png'
-import NextImg from '../images/navigation/Next.png'
+import PrevImg from '../../images/navigation/Previous.png'
+import EllipseActiveImg from '../../images/navigation/EllipseActive.png'
+import EllipseNonActiveImg from '../../images/navigation/EllipseNonActive.png'
+import NextImg from '../../images/navigation/Next.png'
 
 const Navigation = () => {
   const isRouteOpen = useSelector(state => state.routesOpenClose)
