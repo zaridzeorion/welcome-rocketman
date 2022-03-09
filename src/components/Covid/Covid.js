@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Navigation from "../Navigation";
+import { validatePage } from "./validatePage";
 import { handleWorkPreference, handleHadCovid, handleHadCovidAt, handleVaccinated, handleVaccinationDate } from "./handlers";
 
 const Covid = () => {
@@ -8,6 +9,8 @@ const Covid = () => {
   const applicant = useSelector((state) => state.applicant);
 
   const { work_preference, had_covid, had_covid_at, vaccinated, vaccinated_at } = applicant;
+
+  useEffect(() => validatePage(applicant, dispatch), [applicant])
 
   return (
     <>
@@ -72,7 +75,7 @@ const Covid = () => {
       </div>
 
 
-      {/* right side */}
+      {/* Right side */}
       <div>
         <h2>Redberry Covid Policies</h2>
         <p>
