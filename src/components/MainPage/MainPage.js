@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./MainPage.module.css";
-import rocketman from "../images/mainpage/rocketman.png";
+import rocketman from "../../images/mainpage/rocketman.png";
 
 const MainPage = () => {
   return (
