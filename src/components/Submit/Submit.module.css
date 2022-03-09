@@ -1,0 +1,45 @@
+.SubmitContainer {
+  background: var(--primary-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.SubmitRectangle {
+  width: 395px;
+  height: 79px;
+  background: var(--redberry-red);
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 44px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.GoBack {
+  margin-top: 20px;
+  border: none;
+  background-color: transparent;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 34px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration-line: underline;
+}
+
+a {
+  color: #ffffff;
+}
