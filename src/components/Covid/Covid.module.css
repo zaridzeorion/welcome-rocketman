@@ -1,0 +1,55 @@
+.Page {
+  overflow-y: auto;
+}
+
+.LeftSideTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.SubTitle {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.SubTitle:not(:first-child) {
+  margin-top: 45px;
+}
+
+.Form {
+  color: black;
+  font-size: 18px;
+  margin-top: -100px;
+}
+
+/* Date input calendar icon */
+::-webkit-calendar-picker-indicator {
+  filter: invert(31%) sepia(33%) saturate(4248%) hue-rotate(339deg)
+    brightness(93%) contrast(98%);
+  margin-right: 10px;
+}
+
+/* Radio inputs */
+input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 0.1em solid black;
+  border-radius: 50%;
+  transform: translateY(0.1em);
+  margin-top: 20px;
+}
+
+label {
+  margin-left: 12px;
+}
+
+input[type="radio"]:checked {
+  background-color: var(--redberry-red);
+  border: none;
+}
+
+/* Make right side title one line */
+.RightSideTitle {
+  width: 120%;
+}
