@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { handleWillOrganizeDevtalk, handleDevtalkTopic, handleSomethingSpecial } from './handlers'
+import { handleWillOrganizeDevtalk, handleDevtalkTopic, handleSomethingSpecial } from "./handlers";
 import Navigation from "../Navigation";
+import { validatePage } from './validatePage'
 
 const PersonalInformation = () => {
   const dispatch = useDispatch();
   const applicant = useSelector((state) => state.applicant);
   const { will_organize_devtalk, devtalk_topic, something_special } = applicant;
 
+  useEffect(() => validatePage(applicant, dispatch), [applicant])
+
   return (
     <>
       <div>
         <h2>What about you?</h2>
-
 
         {/* Devtalk attend  */}
         <h4>Would you attend Devtalks and maybe also organize your own?</h4>
@@ -36,15 +38,17 @@ const PersonalInformation = () => {
 
         <br />
 
-
         {/* Devtalk speech topic */}
-        <h4>What would you speak about at Devtalk?</h4>
-        <textarea
-          value={devtalk_topic}
-          onChange={(e) => handleDevtalkTopic(e, dispatch)}
-          placeholder="I would..."
-        />
-
+        {will_organize_devtalk && (
+          <>
+            <h4>What would you speak about at Devtalk?</h4>
+            <textarea
+              value={devtalk_topic}
+              onChange={(e) => handleDevtalkTopic(e, dispatch)}
+              placeholder="I would..."
+            />
+          </>
+        )}
 
         {/* Something special  */}
         <h4>Tell us something special</h4>
@@ -56,7 +60,6 @@ const PersonalInformation = () => {
 
         <Navigation />
       </div>
-
 
       {/* Right side */}
       <div>
