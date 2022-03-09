@@ -12,6 +12,8 @@ const Covid = () => {
 
   useEffect(() => validatePage(applicant, dispatch), [applicant])
 
+  let today = new Date().toLocaleDateString('en-ca')
+
   return (
     <>
       <div>
@@ -52,7 +54,7 @@ const Covid = () => {
         {had_covid && (
           <>
             <h5>When?</h5> <br />
-            <input value={had_covid_at} onChange={(e) => handleHadCovidAt(e, dispatch)} type="date" />
+            <input value={had_covid_at} onChange={(e) => handleHadCovidAt(e, dispatch)} type="date" max={today} />
           </>
         )}
 
@@ -66,7 +68,7 @@ const Covid = () => {
         {vaccinated && (
           <>
             <h5>When did you get your last covid vaccine?</h5> <br />
-            <input value={vaccinated_at} onChange={(e) => handleVaccinationDate(e, dispatch)} type="date" />
+            <input value={vaccinated_at} onChange={(e) => handleVaccinationDate(e, dispatch)} type="date" max={today} />
           </>
         )}
 
