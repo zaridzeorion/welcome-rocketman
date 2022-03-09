@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Rowdies&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Rowdies;
+  font-weight: normal;
+}
+
+:root {
+  --redberry-red: #eb3535;
+  --primary-bg: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  --primary-stroke: #525557;
+}
+
+
+/* Page container */
+.Page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+
+  background: var(--primary-bg);
+  color: var(--redberry-red);
+}
+
+/* Page sides  */
+.Left {
+  background: #ffffff;
+  width: 50%;
+  height: 100%;
+}
+
+.Left .Title {
+  position: absolute;
+  width: 716px;
+  height: 128px;
+  left: 105px;
+  top: 131px;
+  font-family: Rowdies;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 79px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.Right {
+  position: absolute;
+  width: 716px;
+  height: 94px;
+  left: 1116px;
+  top: 112px;
+}
+
+.Right .Title {
+  font-family: Rowdies;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 79px;
+  display: flex;
+  align-items: center;
+}
+
+.Right .Description {
+  width: 705px;
+  height: 606px;
+  left: 1119px;
+  top: 195px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 48px;
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+}
