@@ -9,6 +9,7 @@ import {
 } from "./handlers";
 
 import Navigation from "../Navigation";
+import styles from './PersonalInformation.module.css'
 
 const PersonalInformation = () => {
   const dispatch = useDispatch();
@@ -60,7 +61,7 @@ const PersonalInformation = () => {
         </div>
       </div>
 
-      <div className="Right">
+      <div className={`${styles.RightTitle} Right`}>
         <h2 className="Title">Redberry Origins</h2>
         <p className="Description">
           You watch “What? Where? When?” Yeah. Our founders used to play it.

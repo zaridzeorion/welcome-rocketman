@@ -1,0 +1,6 @@
+/* Make right side title proportional for the left side title  */
+.RightTitle {
+    position: absolute;
+    top: 70px;
+}
+  
