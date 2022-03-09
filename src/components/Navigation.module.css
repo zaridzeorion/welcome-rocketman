@@ -1,0 +1,18 @@
+.Navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  width: 231px;
+  height: 19px;
+  left: 81.3px;
+  top: 550px;
+}
+
+.Navigation li {
+  margin-left: 1em;
+}

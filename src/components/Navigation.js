@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import styles from './Navigation.module.css'
+
+import PrevImg from '../images/navigation/Previous.png'
+import EllipseActiveImg from '../images/navigation/EllipseActive.png'
+import EllipseNonActiveImg from '../images/navigation/EllipseNonActive.png'
+import NextImg from '../images/navigation/Next.png'
 
 const Navigation = () => {
   const isRouteOpen = useSelector(state => state.routesOpenClose)
@@ -31,27 +37,27 @@ const Navigation = () => {
   }, []);
 
   return (
-    <ul>
+    <ul className={styles.Navigation}>
       <li>
-        <Link to={`${prev}`}>Prev</Link>
+        <Link to={`${prev}`}><img src={PrevImg} /></Link>
       </li>
+        <li>
+          <Link to="/personal-information"><img src={EllipseActiveImg} /></Link>
+        </li>
+        <li>
+          {isRouteOpen.skillset ? <Link to="/skillset"><img src={EllipseActiveImg} /></Link> : <img src={EllipseNonActiveImg} />}
+        </li>
+        <li>
+          {isRouteOpen.covid ? <Link to="/covid"><img src={EllipseActiveImg} /></Link> : <img src={EllipseNonActiveImg} />}
+        </li>
+        <li>
+          {isRouteOpen.insights ? <Link to="/insights"><img src={EllipseActiveImg} /></Link> : <img src={EllipseNonActiveImg} />}
+        </li>
+        <li>
+          {isRouteOpen.submit ? <Link to="/submit"><img src={EllipseActiveImg} /></Link> : <img src={EllipseNonActiveImg} />}
+        </li>
       <li>
-        <Link to="/personal-information">personal-information</Link>
-      </li>
-      <li>
-        {isRouteOpen.skillset ? <Link to="/skillset">skillset</Link> : 'skillset'}
-      </li>
-      <li>
-        {isRouteOpen.covid ? <Link to="/covid">covid</Link> : 'covid'}
-      </li>
-      <li>
-        {isRouteOpen.insights ? <Link to="/insights">insights</Link> : 'insights'}
-      </li>
-      <li>
-        {isRouteOpen.submit ? <Link to="/submit">submit</Link> : 'submit'}
-      </li>
-      <li>
-        {isRouteOpen[nextWithoutSlash] ? <Link to={`${next}`}>Next</Link> : 'next'}
+        {isRouteOpen[nextWithoutSlash] ? <Link to={`${next}`}><img src={NextImg} /></Link> : <img src={NextImg} />}
       </li>
     </ul>
   );
