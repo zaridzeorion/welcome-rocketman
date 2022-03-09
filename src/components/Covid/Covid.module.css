@@ -2,11 +2,6 @@
   overflow-y: auto;
 }
 
-.LeftSideTitle {
-  display: flex;
-  justify-content: center;
-}
-
 .SubTitle {
   font-size: 22px;
   font-weight: normal;

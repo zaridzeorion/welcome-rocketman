@@ -47,6 +47,8 @@ ul {
 }
 
 .Left .Title {
+  display: flex;
+  justify-content: center;
   position: absolute;
   width: 716px;
   height: 128px;
