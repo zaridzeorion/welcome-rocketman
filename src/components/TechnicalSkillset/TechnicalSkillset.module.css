@@ -1,0 +1,57 @@
+.AddButton {
+  position: absolute;
+  width: 201px;
+  height: 32px;
+  left: 250px;
+  top: 200px;
+  cursor: pointer;
+
+  background: var(--redberry-red);
+  border: none;
+  outline: none;
+  color: #ffffff;
+}
+
+.Add {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.AddedSkills {
+  position: absolute;
+  margin-top: 70px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.SkillTitle {
+  left: 15px;
+  position: absolute;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+
+}
+
+.SkillExperience {
+  margin-left: 35px;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+}
+
+.RemoveSkill {
+  right: 15px;
+  position: absolute;
+  cursor: pointer;
+}
