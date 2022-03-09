@@ -10,8 +10,6 @@ import {
 
 import Navigation from "../Navigation";
 
-import styles from "./PersonalInformation.module.css";
-
 const PersonalInformation = () => {
   const dispatch = useDispatch();
   const applicant = useSelector((state) => state.applicant);
@@ -25,9 +23,9 @@ const PersonalInformation = () => {
       <div className="Left">
         <h2 className="Title">Hey, Rocketeer, what are your coordinates?</h2>
 
-        <div className={styles.Form}>
+        <div className="Form">
           <input
-            className={`${styles.Input} ${styles.FirstName}`}
+            className="Input"
             value={applicant.first_name}
             onChange={(e) => handleFirstName(e, dispatch)}
             type="text"
@@ -35,7 +33,7 @@ const PersonalInformation = () => {
           />
           <br />
           <input
-            className={`${styles.Input} ${styles.LastName}`}
+            className="Input"
             value={applicant.last_name}
             onChange={(e) => handleLastName(e, dispatch)}
             type="text"
@@ -43,7 +41,7 @@ const PersonalInformation = () => {
           />
           <br />
           <input
-            className={`${styles.Input} ${styles.Email}`}
+            className="Input"
             value={applicant.email}
             onChange={(e) => handleEmail(e, dispatch)}
             type="text"
@@ -51,7 +49,7 @@ const PersonalInformation = () => {
           />
           <br />
           <input
-            className={`${styles.Input} ${styles.Phone}`}
+            className="Input"
             value={applicant.phone}
             onChange={(e) => handlePhone(e, dispatch)}
             type="text"
