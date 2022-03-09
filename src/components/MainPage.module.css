@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Rowdies&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+:root {
+  --redberry-red: #eb3535;
+}
+
+.MainPage {
+  text-align: center;
+  padding-top: 19vh;
+  overflow: hidden;
+  mix-blend-mode: normal;
+  background: url("/src/images/mainpage/stars.png") 50% 50% no-repeat;
+  background-color: #151718;
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+}
+
+.title {
+  position: relative;
+  font-size: 5vw;
+  color: var(--redberry-red);
+  font-family: "Rowdies";
+  font-weight: normal;
+}
+
+.startRectangle {
+  cursor: pointer;
+  position: absolute;
+  width: 395px;
+  height: 79px;
+  left: 754px;
+  top: 492px;
+
+  background: #fe3b1f;
+  border-radius: 50px;
+}
+
+.startQuestionnaire {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.submittedRectangle {
+  cursor: pointer;
+  position: absolute;
+  width: 338px;
+  height: 66px;
+  left: 795px;
+  top: 589px;
+
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+}
+
+.submittedApplications {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  text-decoration-line: underline;
+}
+
+.rocketman {
+  width: 33rem;
+  position: relative;
+  top: 16em;
+  left: -33px;
+}
