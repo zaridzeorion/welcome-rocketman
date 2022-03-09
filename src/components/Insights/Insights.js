@@ -2,69 +2,73 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { handleWillOrganizeDevtalk, handleDevtalkTopic, handleSomethingSpecial } from "./handlers";
 import Navigation from "../Navigation";
-import { validatePage } from './validatePage'
+import { validatePage } from "./validatePage";
+import styles from './Insights.module.css'
 
 const PersonalInformation = () => {
   const dispatch = useDispatch();
   const applicant = useSelector((state) => state.applicant);
   const { will_organize_devtalk, devtalk_topic, something_special } = applicant;
 
-  useEffect(() => validatePage(applicant, dispatch), [applicant])
+  useEffect(() => validatePage(applicant, dispatch), [applicant]);
 
   return (
-    <>
-      <div>
-        <h2>What about you?</h2>
+    <div className="Page">
+      <div className="Left">
+        <h2 className="Title">What about you?</h2>
 
         {/* Devtalk attend  */}
-        <h4>Would you attend Devtalks and maybe also organize your own?</h4>
-        <input
-          value="yes"
-          onChange={(e) => handleWillOrganizeDevtalk(e, dispatch)}
-          type="checkbox"
-          checked={will_organize_devtalk}
-        />
-        <label>Yes</label>
+        <div className="Form">
+          <h4 className={styles.SubTitle}>Would you attend Devtalks and maybe also organize your own?</h4>
+          <input
+            value="yes"
+            onChange={(e) => handleWillOrganizeDevtalk(e, dispatch)}
+            type="radio"
+            checked={will_organize_devtalk}
+          />
+          <label>Yes</label>
 
-        <br />
+          <br />
 
-        <input
-          value="no"
-          onChange={(e) => handleWillOrganizeDevtalk(e, dispatch)}
-          type="checkbox"
-          checked={will_organize_devtalk === false}
-        />
-        <label>No</label>
+          <input
+            value="no"
+            onChange={(e) => handleWillOrganizeDevtalk(e, dispatch)}
+            type="radio"
+            checked={will_organize_devtalk === false}
+          />
+          <label>No</label>
 
-        <br />
+          <br />
 
-        {/* Devtalk speech topic */}
-        {will_organize_devtalk && (
-          <>
-            <h4>What would you speak about at Devtalk?</h4>
-            <textarea
-              value={devtalk_topic}
-              onChange={(e) => handleDevtalkTopic(e, dispatch)}
-              placeholder="I would..."
-            />
-          </>
-        )}
+          {/* Devtalk speech topic */}
+          {will_organize_devtalk && (
+            <>
+              <h4 className={styles.SubTitle}>What would you speak about at Devtalk?</h4>
+              <textarea
+                className={styles.TextArea}
+                value={devtalk_topic}
+                onChange={(e) => handleDevtalkTopic(e, dispatch)}
+                placeholder="I would..."
+              />
+            </>
+          )}
 
-        {/* Something special  */}
-        <h4>Tell us something special</h4>
-        <textarea
-          value={something_special}
-          onChange={(e) => handleSomethingSpecial(e, dispatch)}
-          placeholder="I..."
-        />
+          {/* Something special  */}
+          <h4 className={styles.SubTitle}>Tell us something special</h4>
+          <textarea
+            className={`${styles.TextArea} ${styles.LessHeight}`}
+            value={something_special}
+            onChange={(e) => handleSomethingSpecial(e, dispatch)}
+            placeholder="I..."
+          />
 
-        <Navigation />
+          <Navigation />
+        </div>
       </div>
-
       {/* Right side */}
-      <div>
-        <h2>Redberrian Insights</h2>
-        <p>
+      <div className="Right">
+        <h2 className="Title">Redberrian Insights</h2>
+        <p className="Description">
           We were soo much fun before the pandemic started! Parties almost every
           weekend and lavish employee birthday celebrations! Unfortunately,
           covid ruined that fun like it did almost everything else in the world.
@@ -76,7 +80,7 @@ const PersonalInformation = () => {
           an attendee or a speaker!
         </p>
       </div>
-    </>
+    </div>
   );
 };
 
