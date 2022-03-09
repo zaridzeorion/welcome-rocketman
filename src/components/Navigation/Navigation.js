@@ -8,7 +8,7 @@ import EllipseActiveImg from '../../images/navigation/EllipseActive.png'
 import EllipseNonActiveImg from '../../images/navigation/EllipseNonActive.png'
 import NextImg from '../../images/navigation/Next.png'
 
-const Navigation = () => {
+const Navigation = ({ positioning }) => {
   const isRouteOpen = useSelector(state => state.routesOpenClose)
 
   let { pathname } = useLocation();
@@ -37,7 +37,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <ul className={styles.Navigation}>
+    <ul className={positioning === 'Relative' ? styles.RelativeNavigation : styles.AbsoluteNavigation}>
       <li>
         <Link to={`${prev}`}><img src={PrevImg} /></Link>
       </li>

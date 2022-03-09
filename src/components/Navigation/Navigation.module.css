@@ -1,14 +1,22 @@
-.Navigation {
+.AbsoluteNavigation,
+.RelativeNavigation {
   display: flex;
   align-items: center;
-
-  position: absolute;
   width: 231px;
   height: 19px;
   left: 80.5px;
-  top: 550px;
 }
 
-.Navigation li {
+.AbsoluteNavigation {
+  position: absolute;
+  top: 555px;
+}
+
+.RelativeNavigation {
+  position: relative;
+  margin-top: 100px;
+}
+
+.AbsoluteNavigation li, .RelativeNavigation li {
   margin-left: 1em;
 }
