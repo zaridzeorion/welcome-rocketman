@@ -1,0 +1,12 @@
+.ThankYou {
+  background: var(--primary-bg);
+  color: var(--redberry-red);
+  font-family: Rowdies;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

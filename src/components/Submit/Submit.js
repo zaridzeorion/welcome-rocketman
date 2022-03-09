@@ -2,6 +2,7 @@ import React from "react";
 import useFetch from "use-http";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Submit.module.css";
 
 const Submit = () => {
@@ -10,9 +11,11 @@ const Submit = () => {
   const base_url = "https://bootcamp-2022.devtest.ge/api";
   const { post, response, loading, error } = useFetch(base_url);
 
+  let navigate = useNavigate();
+
   const postData = async () => {
     const data = await post("/application", applicant);
-    if (response.ok) console.log("posted", data);
+    if (response.ok) navigate("/thankyou");
   };
 
   return (

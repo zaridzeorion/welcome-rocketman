@@ -10,6 +10,7 @@ import Insights from "./components/Insights";
 import Submit from "./components/Submit";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ThankYou from "./components/ThankYou";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/insights" element={<Insights />} />
 
         <Route path="/submit" element={<Submit />} />
+        <Route path="/thankyou" element={<ThankYou />} />
       </Routes>
     </BrowserRouter>
   );
