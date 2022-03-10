@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { handleWillOrganizeDevtalk, handleDevtalkTopic, handleSomethingSpecial } from "./handlers";
 import Navigation from "../Navigation";
-import { validatePage } from "./validatePage";
+import { validatePage, validateForErrors } from "./validatePage";
 import styles from './Insights.module.css'
 
 const PersonalInformation = () => {
@@ -10,7 +10,14 @@ const PersonalInformation = () => {
   const applicant = useSelector((state) => state.applicant);
   const { will_organize_devtalk, devtalk_topic, something_special } = applicant;
 
-  useEffect(() => validatePage(applicant, dispatch), [applicant]);
+  // FOR ERROR HANDLING
+  const [devtalkError, setDevtalkError] = useState('')
+  const [specialError, setSpecialError] = useState('')
+
+  useEffect(() => {
+    validatePage(applicant, dispatch)
+    validateForErrors(applicant, setDevtalkError, setSpecialError)
+  }, [applicant]);
 
   return (
     <div className="Page">
@@ -45,22 +52,25 @@ const PersonalInformation = () => {
             <>
               <h4 className={styles.SubTitle}>What would you speak about at Devtalk?</h4>
               <textarea
-                className={styles.TextArea}
+                className={`${styles.TextArea} ${devtalkError && "RedOutline"}`}
                 value={devtalk_topic}
                 onChange={(e) => handleDevtalkTopic(e, dispatch)}
                 placeholder="I would..."
               />
+              <label className="ErrorLabel">{devtalkError && devtalkError}</label>
             </>
           )}
 
           {/* Something special  */}
           <h4 className={styles.SubTitle}>Tell us something special</h4>
           <textarea
-            className={`${styles.TextArea} ${styles.LessHeight}`}
+            className={`${styles.TextArea} ${styles.LessHeight} ${specialError && "RedOutline"}`}
             value={something_special}
             onChange={(e) => handleSomethingSpecial(e, dispatch)}
             placeholder="I..."
           />
+          <label className="ErrorLabel">{specialError && specialError}</label>
+
 
           <Navigation />
         </div>
