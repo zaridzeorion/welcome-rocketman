@@ -1,0 +1,52 @@
+.Container {
+  width: 50%;
+  padding: 3.3em;
+  padding-left: 8em;
+}
+
+.Title {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-decoration-line: underline;
+
+  color: #fe3b1f;
+  margin-bottom: 10px;
+  
+}
+
+.FirstName,
+.LastName,
+.Email,
+.Phone {
+  height: 45px;
+
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 15px;
+
+  color: #000000;
+}
+
+.marginLeft {
+    margin-left: 150px;
+    margin-top: -16px;
+
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    
+    color: #727272;
+    
+
+}

@@ -1,0 +1,45 @@
+.Container {
+  position: absolute;
+  width: 420px;
+  height: 626px;
+  left: 650px;
+  top: 385px;
+}
+
+.Title {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-decoration-line: underline;
+
+  color: #fe3b1f;
+  margin-bottom: 10px;
+}
+
+.SubTitle {
+  margin-top: 55px;
+}
+
+.TextArea {
+  width: 99%;
+  height: 122px;
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  padding-left: 1.5em;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  resize: none;
+}
+
+.LessHeight {
+  height: 89px;
+}

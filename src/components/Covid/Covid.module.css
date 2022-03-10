@@ -17,13 +17,6 @@
   margin-top: -100px;
 }
 
-/* Date input calendar icon */
-::-webkit-calendar-picker-indicator {
-  filter: invert(31%) sepia(33%) saturate(4248%) hue-rotate(339deg)
-    brightness(93%) contrast(98%);
-  margin-right: 10px;
-}
-
 /* Radio inputs */
 input[type="radio"] {
   appearance: none;

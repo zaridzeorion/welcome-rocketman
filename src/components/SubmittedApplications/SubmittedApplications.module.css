@@ -1,0 +1,52 @@
+.Container {
+  position: relative;
+  width: 1920px;
+  height: 2077px;
+
+  background: var(--primary-bg);
+  color: #000000;
+  font-family: "Montserrat";
+}
+
+.Title {
+  position: absolute;
+  width: 1128px;
+  height: 100px;
+  left: 359px;
+  top: 94px;
+
+  font-family: "Rowdies";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.11em;
+
+  color: #ffffff;
+}
+
+.Dropdown {
+  position: absolute;
+  width: 1154px;
+  height: 52px;
+  left: 343px;
+  top: 385px;
+
+  background: #f05039;
+  cursor: pointer;
+}
+
+.Application {
+  position: absolute;
+  width: 1154px;
+  height: 1542px;
+  left: 343px;
+  top: 437px;
+
+  background: #ffffff;
+
+  border: 1px solid #fe3b1f;
+  box-sizing: border-box;
+}

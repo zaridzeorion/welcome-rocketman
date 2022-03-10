@@ -75,7 +75,7 @@ ul {
   font-style: normal;
 }
 
-.Left .Input {
+.Input {
   width: 455px;
   height: 54px;
   left: 235px;
@@ -94,8 +94,15 @@ ul {
   align-items: center;
 }
 
-.Left .Input::placeholder {
+.Input::placeholder {
   opacity: 0.75;
+}
+
+/* Date input calendar icon */
+.Input::-webkit-calendar-picker-indicator {
+  filter: invert(31%) sepia(33%) saturate(4248%) hue-rotate(339deg)
+    brightness(93%) contrast(98%);
+  margin-right: 10px;
 }
 
 /* Page Right Side */
