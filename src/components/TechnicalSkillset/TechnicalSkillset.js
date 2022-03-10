@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useFetch } from "use-http";
 import { setSkills } from "../../store/slices/applicantSlice";
 import { addSkill, delSkill } from "./functions";
-import { validatePage } from "./validatePage";
+import { validatePage, validateForError } from "./validatePage";
 import Navigation from "../Navigation";
 
 import styles from './TechnicalSkillset.module.css'
@@ -25,8 +25,12 @@ const TechnicalSkillset = () => {
   const [technology, setTechnology] = useState();
   const [experience, setExperience] = useState();
 
+  // ERRORS
+  const [skillsError, setSkillsError] = useState('') 
+
   useEffect(() => {
     validatePage(applicant, dispatch);
+    validateForError(applicant, setSkillsError)
   }, [applicant]);
 
   return (
@@ -37,16 +41,18 @@ const TechnicalSkillset = () => {
         {/* Skills are added from here */}
         <div className="Form">
           <select
-            className="Input"
+            className={`${skillsError && "RedOutline"} Input`}
             defaultValue=""
             onChange={(e) => setTechnology(e.target.value)}
           >
             <option value="" disabled>
               Skills
             </option>
+            
 
-            {skills && skills.map((skill) => <option>{skill.title}</option>)}
+            {skills && skills.map((skill, id) => <option key={id}>{skill.title}</option>)}
           </select>
+          <label className="ErrorLabel">{skillsError && skillsError}</label>
 
           <br />
 
