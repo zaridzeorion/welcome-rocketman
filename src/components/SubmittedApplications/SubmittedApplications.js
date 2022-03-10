@@ -1,22 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFetch } from "use-http";
-import styles from './SubmittedApplications.module.css'
+import styles from "./SubmittedApplications.module.css";
+import VectorImg from "../../images/submittedApplications/Vector.png";
 
-import { personalInformation } from './personalInformation/personalInformation'
-import { covidSituation } from './covidSituation/covidSituation' 
-import { skillset } from './skillset/skillset' 
-import { insights } from './insights/insights' 
+import { personalInformation } from "./personalInformation/personalInformation";
+import { covidSituation } from "./covidSituation/covidSituation";
+import { skillset } from "./skillset/skillset";
+import { insights } from "./insights/insights";
 
 const SubbmittedApplications = () => {
   const API_TOKEN = "b3e91881-823e-4759-86ca-cf78d301886d";
 
   const APPLICATIONS_REQUEST_URL = `https://bootcamp-2022.devtest.ge/api/applications?token=${API_TOKEN}`;
-  const { data: skills, error, loading } = useFetch(APPLICATIONS_REQUEST_URL, [])
+  const {
+    data: skills,
+    error,
+    loading,
+  } = useFetch(APPLICATIONS_REQUEST_URL, []);
 
   const SKILLS_REQUEST_URL = `https://bootcamp-2022.devtest.ge/api/skills`;
-  const { data: technologies } = useFetch(SKILLS_REQUEST_URL, [])
+  const { data: technologies } = useFetch(SKILLS_REQUEST_URL, []);
 
-  const [dropdown, setDropdown] = useState(false)
+  const handleDropdown = (id) => {
+    document
+      .getElementById(`Application${id}`)
+      .classList.toggle(styles.ShowApplication);
+    document
+      .getElementById(`Vector${id}`)
+      .classList.toggle(styles.UpsideDownVector);
+  };
 
   return (
     <div className={styles.Container}>
@@ -25,19 +37,32 @@ const SubbmittedApplications = () => {
       <ul>
         {error && error}
         {loading && "Loading..."}
-        {skills && skills.map((user, id) => (
-          <>
-            <div onClick={() => setDropdown(!dropdown)} className={styles.Dropdown} />
-            <li className={styles.Application} key={id}>
-            {dropdown &&
-              <>
+        {skills &&
+          skills.map((user, id) => (
+            <>
+              <div
+                id="Dropdown"
+                onClick={() => handleDropdown(id)}
+                className={styles.Dropdown}
+              >
+                {id + 1}
+                <img
+                  id={`Vector${id}`}
+                  className={styles.Vector}
+                  src={VectorImg}
+                  alt="Vector"
+                />
+              </div>
+              <li
+                id={`Application${id}`}
+                className={styles.Application}
+                key={id}
+              >
                 {personalInformation(user)}
                 {covidSituation(user)}
                 {skillset(user, technologies)}
                 {insights(user)}
-              </>
-            }
-            </li>
+              </li>
             </>
           ))}
       </ul>

@@ -1,12 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Rowdies&display=swap");
 
+:root {
+  --redberry-red: #eb3535;
+  --primary-bg: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  --primary-stroke: #525557;
+}
+
 *,
 ::after,
 ::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 body {
@@ -14,6 +21,8 @@ body {
   font-weight: normal;
   font-style: normal;
   font-weight: normal;
+  background: var(--primary-bg);
+
 }
 
 ul {
@@ -22,11 +31,6 @@ ul {
   margin: 0;
 }
 
-:root {
-  --redberry-red: #eb3535;
-  --primary-bg: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
-  --primary-stroke: #525557;
-}
 
 /* Page container */
 .Page {

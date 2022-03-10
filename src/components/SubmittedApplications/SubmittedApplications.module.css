@@ -1,7 +1,6 @@
 .Container {
   position: relative;
   width: 1920px;
-  height: 2077px;
 
   background: var(--primary-bg);
   color: #000000;
@@ -13,7 +12,7 @@
   width: 1128px;
   height: 100px;
   left: 359px;
-  top: 94px;
+  top: 100px;
 
   font-family: "Rowdies";
   font-style: normal;
@@ -28,25 +27,58 @@
 }
 
 .Dropdown {
-  position: absolute;
+  position: relative;
   width: 1154px;
   height: 52px;
   left: 343px;
-  top: 385px;
+  top: 281px;
 
   background: #f05039;
   cursor: pointer;
+
+  padding: 1em;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LighterDropdown {
+  opacity: 0.7;
+}
+
+.Vector {
+  width: 12.02px;
+  height: 7.42px;
+}
+
+.UpsideDownVector {
+  transform: rotate(180deg);
+
+}
+
+.Dropdown:not(:first-child) {
+  margin-top: 30px;
 }
 
 .Application {
-  position: absolute;
+  display: none;
+  position: relative;
   width: 1154px;
   height: 1542px;
   left: 343px;
-  top: 437px;
+  top: 280px;
 
   background: #ffffff;
 
   border: 1px solid #fe3b1f;
   box-sizing: border-box;
+}
+
+.Application:last-child {
+  margin-bottom: 500px;
+}
+
+.ShowApplication {
+  display: block;
 }
