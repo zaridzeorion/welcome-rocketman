@@ -109,6 +109,21 @@ ul {
   margin-right: 10px;
 }
 
+/* For error handling */
+.ErrorLabel {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  padding-top: 13px;
+  padding-left: 30px;
+}
+
+.RedOutline {
+  border: none;
+  outline: .5px solid var(--redberry-red);
+}
+
 /* Page Right Side */
 .Right {
   position: absolute;

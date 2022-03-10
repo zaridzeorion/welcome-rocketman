@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { validatePage } from "./validators";
+import { validatePage, validateForErrors } from "./validators";
 import {
   handleFirstName,
   handleLastName,
@@ -15,8 +15,16 @@ const PersonalInformation = () => {
   const dispatch = useDispatch();
   const applicant = useSelector((state) => state.applicant);
 
+  // ERRORS
+  const [firstNameError, setFirstNameError] = useState('') 
+  const [lastNameError, setLastNameError] = useState('') 
+  const [emailError, setEmailError] = useState('') 
+  const [phoneError, setPhoneError] = useState('') 
+
+
   useEffect(() => {
     validatePage(applicant, dispatch);
+    validateForErrors(applicant, setFirstNameError, setLastNameError, setEmailError, setPhoneError)
   }, [applicant]);
 
   return (
@@ -26,36 +34,40 @@ const PersonalInformation = () => {
 
         <div className="Form">
           <input
-            className="Input"
+            className={`Input ${firstNameError && "RedOutline"}`}
             value={applicant.first_name}
             onChange={(e) => handleFirstName(e, dispatch)}
             type="text"
             placeholder="First Name"
           />
+          <label className="ErrorLabel">{firstNameError && firstNameError}</label>
           <br />
           <input
-            className="Input"
+            className={`Input ${lastNameError && styles.RedOutline}`}
             value={applicant.last_name}
             onChange={(e) => handleLastName(e, dispatch)}
             type="text"
             placeholder="Last Name"
           />
+          <label className="ErrorLabel">{lastNameError && lastNameError}</label>
           <br />
           <input
-            className="Input"
+            className={`Input ${emailError && styles.RedOutline}`}
             value={applicant.email}
             onChange={(e) => handleEmail(e, dispatch)}
             type="text"
             placeholder="E Mail"
           />
+          <label className="ErrorLabel">{emailError && emailError}</label>
           <br />
           <input
-            className="Input"
+            className={`Input ${phoneError && styles.RedOutline}`}
             value={applicant.phone}
             onChange={(e) => handlePhone(e, dispatch)}
             type="text"
             placeholder="+995 5__ __ __ __"
           />
+          <label className="ErrorLabel">{phoneError && phoneError}</label>
 
           <Navigation />
         </div>

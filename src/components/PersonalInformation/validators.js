@@ -30,3 +30,17 @@ export const validatePage = (applicant, dispatch) => {
     dispatch(openSkillsetRoute());
   }
 };
+
+export const validateForErrors = (applicant, setFirstNameError, setLastNameError, setEmailError, setPhoneError) => {
+  setFirstNameError('')
+  setLastNameError('')
+  setEmailError('')
+  setPhoneError('')
+
+  const { first_name, last_name, email, phone } = applicant;
+
+  if (first_name.length < 3) setFirstNameError('*first name should include at least 3 or more character')
+  if (last_name.length < 3) setLastNameError('*last name should include at least 3 or more character')
+  if (!validateEmail(email)) setEmailError('*should include valid email address')
+  if (phone && !validatePhone(phone)) setPhoneError('*number should be Georgian')
+}
