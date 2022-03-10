@@ -43,7 +43,7 @@ const PersonalInformation = () => {
           <label className="ErrorLabel">{firstNameError && firstNameError}</label>
           <br />
           <input
-            className={`Input ${lastNameError && styles.RedOutline}`}
+            className={`Input ${lastNameError && "RedOutline"}`}
             value={applicant.last_name}
             onChange={(e) => handleLastName(e, dispatch)}
             type="text"
@@ -52,7 +52,7 @@ const PersonalInformation = () => {
           <label className="ErrorLabel">{lastNameError && lastNameError}</label>
           <br />
           <input
-            className={`Input ${emailError && styles.RedOutline}`}
+            className={`Input ${emailError && "RedOutline"}`}
             value={applicant.email}
             onChange={(e) => handleEmail(e, dispatch)}
             type="text"
@@ -61,7 +61,7 @@ const PersonalInformation = () => {
           <label className="ErrorLabel">{emailError && emailError}</label>
           <br />
           <input
-            className={`Input ${phoneError && styles.RedOutline}`}
+            className={`Input ${phoneError && "RedOutline"}`}
             value={applicant.phone}
             onChange={(e) => handlePhone(e, dispatch)}
             type="text"
