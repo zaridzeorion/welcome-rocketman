@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useFetch from "use-http";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import styles from "./Submit.module.css";
+import { openThankYouRoute } from "../../store/slices/routesOpenClose";
 
 const Submit = () => {
+  useEffect(() => dispatch(openThankYouRoute()), []);
+
+  const dispatch = useDispatch();
   const applicant = useSelector((state) => state.applicant);
 
   const base_url = "https://bootcamp-2022.devtest.ge/api";
