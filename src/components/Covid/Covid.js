@@ -57,7 +57,7 @@ const Covid = () => {
 
         
           {/* Had covid or not */}
-          <h5 className={styles.SubTitle}>Did you contanct covid 19? :(</h5> <br />
+          <h5 className={styles.SubTitle}>Did you contact covid 19? :(</h5> <br />
 
           <input value="yes" onChange={(e) => handleHadCovid(e, dispatch)} type="radio" checked={had_covid} />
           <label>Yes</label> <br />
