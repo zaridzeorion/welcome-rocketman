@@ -7,6 +7,7 @@ let initialState = {
   covid: false,
   insights: false,
   submit: false,
+  thankYou: false,
 };
 
 const routesOpenClose = createSlice({
@@ -25,7 +26,11 @@ const routesOpenClose = createSlice({
     openSubmitRoute(state) {
       return { ...state, submit: true };
     },
+    openThankYouRoute(state) {
+      return { ...state, thankYou: true };
+    },
 
+    
     closeSkillsetRoute(state) {
       return { ...state, skillset: false };
     },
@@ -37,6 +42,9 @@ const routesOpenClose = createSlice({
     },
     closeSubmitRoute(state) {
       return { ...state, submit: false };
+    },
+    closeThankYouRoute(state) {
+      return { ...state, thankYou: false };
     },
   },
 });
