@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // If true - route is open for that page
 // If false - route is closed for that page
 let initialState = {
-  skillset: true,
+  skillset: false,
   covid: false,
   insights: false,
   submit: false,

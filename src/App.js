@@ -8,11 +8,14 @@ import TechnicalSkillset from "./components/TechnicalSkillset";
 import Covid from "./components/Covid";
 import Insights from "./components/Insights";
 import Submit from "./components/Submit";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ThankYou from "./components/ThankYou";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { useSelector } from "react-redux";
+
 function App() {
+  let isRouteOpen = useSelector(state => state.routesOpenClose)
 
   return (
     <BrowserRouter>
@@ -24,11 +27,12 @@ function App() {
         />
 
         <Route path="/personal-information" element={<PersonalInformation />} />
-        <Route path="/skillset" element={<TechnicalSkillset />} />
-        <Route path="/covid" element={<Covid />} />
-        <Route path="/insights" element={<Insights />} />
+        
+        {isRouteOpen.skillset && <Route path="/skillset" element={<TechnicalSkillset />} />} 
+        {isRouteOpen.covid && <Route path="/covid" element={<Covid />} />}
+        {isRouteOpen.insights && <Route path="/insights" element={<Insights />} /> }
 
-        <Route path="/submit" element={<Submit />} />
+        {isRouteOpen.submit && <Route path="/submit" element={<Submit />} />}
         <Route path="/thankyou" element={<ThankYou />} />
       </Routes>
     </BrowserRouter>
