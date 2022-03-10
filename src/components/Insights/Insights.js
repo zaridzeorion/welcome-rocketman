@@ -18,7 +18,7 @@ const PersonalInformation = () => {
         <h2 className="Title">What about you?</h2>
 
         {/* Devtalk attend  */}
-        <div className="Form">
+        <div style={{color: 'black'}} className="Form">
           <h4 className={styles.SubTitle}>Would you attend Devtalks and maybe also organize your own?</h4>
           <input
             value="yes"
