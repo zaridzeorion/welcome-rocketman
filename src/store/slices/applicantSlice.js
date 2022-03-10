@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const API_TOKEN = "3a0a271b-f0c2-4d4b-996a-f9b6c4411580";
+
 let initialState = {
+  token: API_TOKEN,
   first_name: "",
   last_name: "",
   email: "",

@@ -9,7 +9,7 @@ import { skillset } from "./skillset/skillset";
 import { insights } from "./insights/insights";
 
 const SubbmittedApplications = () => {
-  const API_TOKEN = "b3e91881-823e-4759-86ca-cf78d301886d";
+  const API_TOKEN = "3a0a271b-f0c2-4d4b-996a-f9b6c4411580";
 
   const APPLICATIONS_REQUEST_URL = `https://bootcamp-2022.devtest.ge/api/applications?token=${API_TOKEN}`;
   const {
