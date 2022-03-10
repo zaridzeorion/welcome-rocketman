@@ -54,10 +54,12 @@ export const {
   openCovidRoute,
   openInsightsRoute,
   openSubmitRoute,
+  openThankYouRoute,
   closeSkillsetRoute,
   closeCovidRoute,
   closeInsightsRoute,
   closeSubmitRoute,
+  closeThankYouRoute
 } = routesOpenClose.actions;
 
 export default routesOpenClose.reducer;

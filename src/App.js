@@ -33,7 +33,7 @@ function App() {
         {isRouteOpen.insights && <Route path="/insights" element={<Insights />} /> }
 
         {isRouteOpen.submit && <Route path="/submit" element={<Submit />} />}
-        <Route path="/thankyou" element={<ThankYou />} />
+        {isRouteOpen.thankYou && <Route path="/thankyou" element={<ThankYou />} />}
       </Routes>
     </BrowserRouter>
   );
