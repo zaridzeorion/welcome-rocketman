@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Navigation from "../Navigation";
-import { validatePage } from "./validatePage";
+import { validateForErrors, validatePage } from "./validatePage";
 import { handleWorkPreference, handleHadCovid, handleHadCovidAt, handleVaccinated, handleVaccinationDate } from "./handlers";
 
 import styles from './Covid.module.css'
@@ -12,7 +12,13 @@ const Covid = () => {
 
   const { work_preference, had_covid, had_covid_at, vaccinated, vaccinated_at } = applicant;
 
-  useEffect(() => validatePage(applicant, dispatch), [applicant])
+  const [covidDateError, setCovidDateError] = useState('')
+  const [vaccinationDateError, setVaccinationDateError] = useState('')
+
+  useEffect(() => {
+    validatePage(applicant, dispatch)
+    validateForErrors(applicant, setCovidDateError, setVaccinationDateError)
+  }, [applicant])
 
   let today = new Date().toLocaleDateString('en-ca')
 
@@ -32,6 +38,7 @@ const Covid = () => {
             checked={work_preference === "from_office" && true}
           />
           <label>From Sairme Office</label> <br />
+
           <input
             value="from_home"
             onChange={(e) => handleWorkPreference(e, dispatch)}
@@ -39,6 +46,7 @@ const Covid = () => {
             checked={work_preference === "from_home" && true}
           />
           <label>From Home</label> <br />
+
           <input
             value="hybrid"
             onChange={(e) => handleWorkPreference(e, dispatch)}
@@ -50,6 +58,7 @@ const Covid = () => {
         
           {/* Had covid or not */}
           <h5 className={styles.SubTitle}>Did you contanct covid 19? :(</h5> <br />
+
           <input value="yes" onChange={(e) => handleHadCovid(e, dispatch)} type="radio" checked={had_covid} />
           <label>Yes</label> <br />
           <input value="no" onChange={(e) => handleHadCovid(e, dispatch)} type="radio" checked={had_covid === false} />
@@ -57,13 +66,15 @@ const Covid = () => {
           {had_covid && (
             <>
               <h5 className={styles.SubTitle}>When?</h5> <br />
-              <input className="Input" value={had_covid_at} onChange={(e) => handleHadCovidAt(e, dispatch)} type="date" max={today} />
+              <input className={`${covidDateError && "RedOutline"} Input`} value={had_covid_at} onChange={(e) => handleHadCovidAt(e, dispatch)} type="date" max={today} />
+              <label className="ErrorLabel">{covidDateError && covidDateError}</label>
             </>
           )}
 
 
           {/* Had vaccination or not */}
           <h5 className={styles.SubTitle}>Have you been vaccinated?</h5> <br />
+
           <input value="yes" onChange={(e) => handleVaccinated(e, dispatch)} type="radio" checked={vaccinated} />
           <label>Yes</label> <br />
           <input value="no" onChange={(e) => handleVaccinated(e, dispatch)} type="radio" checked={vaccinated === false} />
@@ -71,7 +82,8 @@ const Covid = () => {
           {vaccinated && (
             <>
               <h5 className={styles.SubTitle}>When did you get your last covid vaccine?</h5> <br />
-              <input className="Input" value={vaccinated_at} onChange={(e) => handleVaccinationDate(e, dispatch)} type="date" max={today} />
+              <input className={`${vaccinationDateError && "RedOutline"} Input`} value={vaccinated_at} onChange={(e) => handleVaccinationDate(e, dispatch)} type="date" max={today} />
+              <label className="ErrorLabel">{vaccinationDateError && vaccinationDateError}</label>
             </>
           )}
 

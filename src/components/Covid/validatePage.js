@@ -27,3 +27,14 @@ export const validatePage = (applicant, dispatch) => {
   if (had_covid && had_covid_at && vaccinated && vaccinated_at)
     dispatch(openInsightsRoute());
 };
+
+export const validateForErrors = (applicant, setCovidDateError, setVaccinationDateError) => {
+  setCovidDateError('')
+  setVaccinationDateError('')
+
+  const { had_covid, had_covid_at, vaccinated, vaccinated_at } = applicant;
+
+  if (had_covid && !had_covid_at) setCovidDateError('*include covid contact date')
+  if (vaccinated && !vaccinated_at) setVaccinationDateError('*include vacination date')
+
+}
